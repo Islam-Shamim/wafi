@@ -114,7 +114,7 @@ const AddEmployee = () => {
                 <span className="label-text">Photo</span>
               </label>
               <input
-                type="file"
+                type="text"
                 name="photo"
                 placeholder="Enter photo url"
                 className="input input-bordered pt-2"

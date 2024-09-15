@@ -2,13 +2,32 @@ import { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import User from "./User";
 import { useLoaderData } from "react-router-dom";
+import { LuArrowUpDown} from "react-icons/lu";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  //const [order, setOrder] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const { count } = useLoaderData();
   const itemsPerPage = 10;
   const numberOfPages = Math.ceil(count / itemsPerPage);
+
+  // const sorting = (col) => {
+  //   if (order === "ASC") {
+  //     const sorted = [...users].sort((a, b) => {
+  //       a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1;
+  //     });
+  //     setUsers(sorted);
+  //     setOrder("DSC");
+  //   }
+  //   if (order === "DSC") {
+  //     const sorted = [...users].sort((a, b) => {
+  //       a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1;
+  //     });
+  //     setUsers(sorted);
+  //     setOrder("ASC");
+  //   }
+  // };
 
   // const pages = []
   // for(let i=0;i<numberOfPages;i++){
@@ -69,11 +88,46 @@ const Home = () => {
           {/* head */}
           <thead>
             <tr className="border-1">
-              <th>Photo</th>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Date of birth</th>
+              <th>
+                <div className="flex items-center">
+                  <p className="mr-2">Photo</p>
+                  <span >
+                  <LuArrowUpDown />
+                  </span>
+                </div>
+              </th>
+              <th>
+                <div className="flex items-center">
+                  <p className="mr-2">Full Name</p>
+                  <span >
+                  <LuArrowUpDown />
+                  </span>
+                </div>
+              </th>
+              <th>
+                <div className="flex items-center">
+                  <p className="mr-2">Email</p>
+                  <span >
+                  <LuArrowUpDown />
+                  </span>
+                </div>
+              </th>
+              <th>
+                <div className="flex items-center">
+                  <p className="mr-2">Phone_number</p>
+                  <span >
+                  <LuArrowUpDown />
+                  </span>
+                </div>
+              </th>
+              <th>
+                <div className="flex items-center">
+                  <p className="mr-2">date_of_birth</p>
+                  <span >
+                  <LuArrowUpDown />
+                  </span>
+                </div>
+              </th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -90,9 +144,16 @@ const Home = () => {
         </table>
         <div className="flex justify-between mt-8 items-center">
           <div>
-            {
-              (currentPage + 1) != numberOfPages ?<p>Showing {currentPage*10} to {(currentPage+1)*10} out of {count}</p>: <p>Showing {currentPage*10} to {(count)} out of {count}</p> 
-            }
+            {currentPage + 1 != numberOfPages ? (
+              <p>
+                Showing {currentPage * 10} to {(currentPage + 1) * 10} out of{" "}
+                {count}
+              </p>
+            ) : (
+              <p>
+                Showing {currentPage * 10} to {count} out of {count}
+              </p>
+            )}
           </div>
           <div>
             <button onClick={handlePrevPage} className="border-2 px-4 py-2">
@@ -104,7 +165,7 @@ const Home = () => {
                 key={page}
                 className="px-4 py-2 border-2"
               >
-                {page+1}
+                {page + 1}
               </button>
             ))}
             <button onClick={handleNextPage} className="border-2 px-4 py-2">

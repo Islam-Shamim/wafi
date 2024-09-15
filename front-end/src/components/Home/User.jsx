@@ -60,7 +60,7 @@ const User = ({ user, users, setUsers }) => {
           {first_name} {last_name}
         </h2>
       </td>
-      <td>{email}</td>
+      <td className="justify-center">{email}</td>
       <td>{phone_number}</td>
       <td>{date_of_birth}</td>
       <td>
