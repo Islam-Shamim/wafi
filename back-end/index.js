@@ -46,7 +46,7 @@ async function run() {
     app.get("/users", async (req, res) => {
       const page = parseInt(req.query.page);
       const size = parseInt(req.query.size);
-      console.log(page, size);
+      //console.log(page, size);
       const cursor = userCollection.find();
       const result = await cursor
         .skip(page * size)
@@ -76,11 +76,11 @@ async function run() {
       const options = { upsert: true };
       const updateDoc = {
         $set: {
-          first: updateEmployee.first,
-          last : updateEmployee.last,
+          first_name: updateEmployee.first_name,
+          last_name : updateEmployee.last_name,
           email : updateEmployee.email,
-          phone : updateEmployee.phone,
-          date : updateEmployee.date,
+          phone_number : updateEmployee.phone_number,
+          date_of_birth : updateEmployee.date_of_birth,
           photo : updateEmployee.photo,
         },
       };
