@@ -2,14 +2,14 @@ const AddEmployee = () => {
   const handleAddEmployee = (event) => {
     event.preventDefault();
     const form = event.target;
-    const first = form.first.value;
-    const last = form.last.value;
+    const first_name = form.first.value;
+    const last_name = form.last.value;
     const email = form.email.value;
-    const phone = form.phone.value;
-    const date = form.date.value;
+    const phone_number = form.phone.value;
+    const date_of_birth = form.date.value;
     const photo = form.photo.value;
-    const user = { first, last, email, phone, date, photo };
-    console.log(user);
+    const user = { first_name, last_name, email, phone_number, date_of_birth, photo };
+    //console.log(user);
 
     fetch(
       "http://localhost:5000/users",
@@ -106,10 +106,10 @@ const AddEmployee = () => {
                 <span className="label-text">Photo</span>
               </label>
               <input
-                type="text"
+                type="file"
                 name="photo"
                 placeholder="Enter photo url"
-                className="input input-bordered"
+                className="input input-bordered pt-2"
                 required
               />
             </div>

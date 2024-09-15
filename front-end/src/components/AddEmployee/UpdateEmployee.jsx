@@ -14,13 +14,13 @@ const UpdateEmployee = () => {
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
-    const first = form.first.value;
-    const last = form.last.value;
+    const first_name = form.first.value;
+    const last_name = form.last.value;
     const email = form.email.value;
-    const phone = form.phone.value;
-    const date = form.date.value;
+    const phone_number = form.phone.value;
+    const date_of_birth = form.date.value;
     const photo = form.photo.value;
-    const user = { first, last, email, phone, date, photo };
+    const user = { first_name, last_name, email, phone_number, date_of_birth, photo };
     console.log(user);
     
     fetch(`http://localhost:5000/users/${_id}`,{
@@ -62,7 +62,6 @@ const UpdateEmployee = () => {
                 defaultValue={first_name}
                 placeholder="First Name"
                 className="input input-bordered"
-                required
               />
             </div>
             <div className="form-control w-1/2 mr-4">
@@ -75,7 +74,6 @@ const UpdateEmployee = () => {
                 defaultValue={last_name}
                 placeholder="Last Name"
                 className="input input-bordered"
-                required
               />
             </div>
           </div>
@@ -91,7 +89,6 @@ const UpdateEmployee = () => {
                 defaultValue={email}
                 placeholder="Email"
                 className="input input-bordered"
-                required
               />
             </div>
             <div className="form-control w-1/2 mr-4">
@@ -104,7 +101,6 @@ const UpdateEmployee = () => {
                 defaultValue={phone_number}
                 placeholder="Phone"
                 className="input input-bordered"
-                required
               />
             </div>
           </div>
@@ -120,7 +116,6 @@ const UpdateEmployee = () => {
                 defaultValue={date_of_birth}
                 placeholder="Date"
                 className="input input-bordered"
-                required
               />
             </div>
             <div className="form-control w-1/2 mr-4">
@@ -132,8 +127,7 @@ const UpdateEmployee = () => {
                 name="photo"
                 defaultValue={photo}
                 placeholder="Enter photo url"
-                className="input input-bordered"
-                required
+                className="input input-bordered pt-2"
               />
             </div>
           </div>
