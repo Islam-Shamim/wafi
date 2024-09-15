@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddEmployee = () => {
   const handleAddEmployee = (event) => {
     event.preventDefault();
@@ -23,7 +25,13 @@ const AddEmployee = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if(data.acknowledged){
+          Swal.fire({
+            icon: "success",
+            title: "Done",
+            text: "Successfully added employee",
+          });
+        }
       });
   };
   return (
